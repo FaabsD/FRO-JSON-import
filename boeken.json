@@ -394,5 +394,20 @@
     "taal": "Nederlands",
     "ean": 9789044539455,
     "prijs": 15.99
+  },
+  {
+    "titel": "Pinkeltje en de ijsheks",
+    "cover": "https://media.s-bol.com/BBgV4YZ7pQAJ/550x756.jpg",
+    "auteurs": [
+      {
+        "voornaam": "Dick",
+        "achternaam": "Laan"
+      }
+    ],
+    "uitgave": "2008-11",
+    "paginas": 126,
+    "taal": "Nederlands",
+    "ean": 9789047509752,
+    "prijs": 12.95
   }
 ]
