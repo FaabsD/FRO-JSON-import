@@ -1,4 +1,5 @@
 body {
+    background-color: skyblue;
     font-family: "Comic Sans MS", sans-serif;
 }
 
@@ -10,4 +11,8 @@ body {
     float: left;
     padding: 0 3rem 0 0;
     max-width: 300px;
+}
+
+.book__pages::after, .book__edition::after, .book__ean::after {
+ content: " | ";
 }
