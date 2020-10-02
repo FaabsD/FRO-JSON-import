@@ -29,6 +29,10 @@ const books = {
             html += `<section class="book">`;
             html += `<img class ="book__cover" src ="${book.cover}" alt"${title}">`;
             html += `<h3>${title}</h3>`;
+            html += `<span class="book__edition">${book.uitgave}</span>`;
+            html += `<span class="book__ean">ean: ${book.ean}</span>`;
+            html += `<span class="book__pages">${book.paginas} pagina's</span>`;
+            html += `<span class="book__lang">${book.taal}</span>`;
             html += `</section>`;
         });
         output.innerHTML = html;
