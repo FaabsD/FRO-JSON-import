@@ -27,7 +27,7 @@ const books = {
             title += book.titel
 
             html += `<section class="book">`;
-            html += `<img src ="${book.cover}" alt"${title}">`;
+            html += `<img class ="book__cover" src ="${book.cover}" alt"${title}">`;
             html += `<h3>${title}</h3>`;
             html += `</section>`;
         });
