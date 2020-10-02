@@ -25,7 +25,11 @@ const books = {
                 title += book.voortitel + " ";
             }
             title += book.titel
-            html += `<h3>${title}</h3>`
+
+            html += `<section class="book">`;
+            html += `<img src ="${book.cover}" alt"${title}">`;
+            html += `<h3>${title}</h3>`;
+            html += `</section>`;
         });
         output.innerHTML = html;
     }
