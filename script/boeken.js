@@ -2,7 +2,7 @@ const output = document.getElementById('boeken');
 const request = new XMLHttpRequest();
 
 request.onreadystatechange = () => {
-    if(request.readyState === 4 && request.status === 200) {
+    if (request.readyState === 4 && request.status === 200) {
         let result = JSON.parse(request.responseText);
         books.data = result;
         books.run();
@@ -19,7 +19,13 @@ const books = {
     run() {
         let html = "";
         this.data.forEach(book => {
-            html += `<h3>${book.titel}</h3>`
+            // Als er een voortitel is moet deze voor de titel worden geplaatst
+            let title = "";
+            if (book.voortitel) {
+                title += book.voortitel + " ";
+            }
+            title += book.titel
+            html += `<h3>${title}</h3>`
         });
         output.innerHTML = html;
     }
