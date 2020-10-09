@@ -31,8 +31,13 @@ const books = {
             return bool
         })
     },
+    sorting() {
+        this.data.sort((a,b) => (a.titel.toUpperCase() > b.titel.toUpperCase()) ? 1 : -1);
+    },
     // Hier wordt een eigenschap data gemaakt
     run() {
+        // eerst even sorteren
+        this.sorting();
         let html = "";
         this.data.forEach(book => {
             // Als er een voortitel is moet deze voor de titel worden geplaatst
