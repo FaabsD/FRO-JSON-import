@@ -29,3 +29,5 @@ Data uit JSON stap: 13 meer talen filteren afgerond.
 Video 14 Gebruiker laten filteren afgerond.
 ### 20:44
 Video 15 sorteren afgerond.
+### 21:01
+Video 16 op andere eigenschappen sorteren afgerond.
