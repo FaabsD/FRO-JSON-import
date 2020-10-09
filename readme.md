@@ -18,4 +18,5 @@ video 10 afgerond prijs naar Nederlandse valuta (euro's).
 ### gaat verder nadat ik bij de Fysiotherapeut ben geweest.
 ### 18:11
 video 11 afgerond.
-
+### 18:36
+video 12 of eigenlijk 13? Afgerond begin gemaakt met filter.
