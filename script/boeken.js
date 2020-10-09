@@ -27,12 +27,16 @@ const books = {
             title += book.titel
             // maak een lijst met auteurs
             let auteurs = "";
-            book.auteurs.forEach((auteur,index) => {
+            book.auteurs.forEach((auteur, index) => {
                 let tussenvoegsel = auteur.tussenvoegsel ? auteur.tussenvoegsel + " " : "";
                 // scheidingsteken tussen auteurs
                 let separator = ", ";
-                if (index >= book.auteurs.length -2) { separator = " & ";}
-                if (index >= book.auteurs.length -1) { separator = "";}
+                if (index >= book.auteurs.length - 2) {
+                    separator = " & ";
+                }
+                if (index >= book.auteurs.length - 1) {
+                    separator = "";
+                }
                 auteurs += auteur.voornaam + " " + tussenvoegsel + auteur.achternaam + separator;
             });
 
@@ -40,13 +44,66 @@ const books = {
             html += `<img class ="book__cover" src ="${book.cover}" alt"${title}">`;
             html += `<h3 class="book__head">${title}</h3>`;
             html += `<p class="book__authors">${auteurs}</p>`;
-            html += `<span class="book__edition">${book.uitgave}</span>`;
+            html += `<span class="book__edition">${this.changeDate(book.uitgave)}</span>`;
             html += `<span class="book__ean">ean: ${book.ean}</span>`;
             html += `<span class="book__pages">${book.paginas} pagina's</span>`;
             html += `<span class="book__lang">${book.taal}</span>`;
-            html += `<div class="book__price">${book.prijs.toLocaleString('nl-NL', {currency: 'EUR', style:'currency'})}</div>`
+            html += `<div class="book__price">${book.prijs.toLocaleString('nl-NL', {
+                currency: 'EUR',
+                style: 'currency'
+            })}</div>`
             html += `</section>`;
         });
         output.innerHTML = html;
+    },
+    changeDate(dateString) {
+        let date = new Date(dateString);
+        let year = date.getFullYear();
+        let month = this.giveMonthName(date.getMonth());
+        return `${month} ${year}`;
+    },
+    giveMonthName(m) {
+        let month = "";
+        switch (m) {
+            case 0:
+                month = "januari";
+                break;
+            case 1:
+                month = "februari";
+                break;
+            case 2:
+                month = "maart";
+                break;
+            case 3:
+                month = "april";
+                break;
+            case 4:
+                month = "mei";
+                break;
+            case 5:
+                month = "juni";
+                break;
+            case 6:
+                month = "juli";
+                break;
+            case 7:
+                month = "augustus";
+                break;
+            case 8:
+                month = "september";
+                break;
+            case 9:
+                month = "oktober";
+                break;
+            case 10:
+                month = "november";
+                break;
+            case 11:
+                month = "december";
+                break;
+            default:
+                month = m;
+        }
+        return month;
     }
 }
