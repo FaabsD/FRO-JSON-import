@@ -1,4 +1,6 @@
 # FRO-JSON-import 
+## Live link
+### http://19959.hosts1.ma-cloud.nl/bewijzenmap/periode2.1/fro/JSON-import/
 ## 25-9-2020
 gekomen tot stap 2. JSON binnenhalen https://blanken5.home.xs4all.nl/jsonData.html
 ## 2-10-2020
