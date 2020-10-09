@@ -33,3 +33,5 @@ Video 15 sorteren afgerond.
 Video 16 op andere eigenschappen sorteren afgerond.
 ### 21:24
 video 17 de gebruiker laten sorteren afgerond.
+### 21:42
+video 18 sorteer volgorde omdraaien afgerond.
