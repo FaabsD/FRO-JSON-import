@@ -1,5 +1,7 @@
 const output = document.getElementById('boeken');
 const request = new XMLHttpRequest();
+// checkboxes voor taal filters
+const taalfilters = document.querySelectorAll('.controls__checkbox');
 
 request.onreadystatechange = () => {
     if (request.readyState === 4 && request.status === 200) {
@@ -22,7 +24,9 @@ const books = {
         this.data = data.filter((book) => {
             let bool = false;
             this.langFilter.forEach((taal) => {
-                if ( book.taal === taal ){bool = true}
+                if (book.taal === taal) {
+                    bool = true
+                }
             })
             return bool
         })
@@ -119,3 +123,15 @@ const books = {
         return month;
     }
 }
+
+const applyFilter = () => {
+    let checkedLang = [];
+    taalfilters.forEach(cb => {
+        if (cb.checked) checkedLang.push(cb.value);
+    })
+    books.langFilter = checkedLang;
+    books.filter(JSON.parse(request.responseText));
+    books.run();
+}
+
+taalfilters.forEach(cb => cb.addEventListener('change', applyFilter));
