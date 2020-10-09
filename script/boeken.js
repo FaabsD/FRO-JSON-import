@@ -34,7 +34,7 @@ const books = {
                 if (index >= book.auteurs.length -2) { separator = " & ";}
                 if (index >= book.auteurs.length -1) { separator = "";}
                 auteurs += auteur.voornaam + " " + tussenvoegsel + auteur.achternaam + separator;
-            })
+            });
 
             html += `<section class="book">`;
             html += `<img class ="book__cover" src ="${book.cover}" alt"${title}">`;
@@ -44,7 +44,7 @@ const books = {
             html += `<span class="book__ean">ean: ${book.ean}</span>`;
             html += `<span class="book__pages">${book.paginas} pagina's</span>`;
             html += `<span class="book__lang">${book.taal}</span>`;
-            html += `<div class="book__price">&euro; ${book.prijs}</div>`
+            html += `<div class="book__price">${book.prijs.toLocaleString('nl-NL', {currency: 'EUR', style:'currency'})}</div>`
             html += `</section>`;
         });
         output.innerHTML = html;
