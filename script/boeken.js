@@ -25,10 +25,18 @@ const books = {
                 title += book.voortitel + " ";
             }
             title += book.titel
+            // maak een lijst met auteurs
+            let auteurs = "";
+            book.auteurs.forEach(auteur => {
+                let tussenvoegsel = auteur.tussenvoegsel ? auteur.tussenvoegsel + " " : "";
+                let separator = " | ";
+                auteurs += auteur.voornaam + " " + tussenvoegsel + auteur.achternaam + separator;
+            })
 
             html += `<section class="book">`;
             html += `<img class ="book__cover" src ="${book.cover}" alt"${title}">`;
             html += `<h3 class="book__head">${title}</h3>`;
+            html += `<p class="book__authors">${auteurs}</p>`;
             html += `<span class="book__edition">${book.uitgave}</span>`;
             html += `<span class="book__ean">ean: ${book.ean}</span>`;
             html += `<span class="book__pages">${book.paginas} pagina's</span>`;
