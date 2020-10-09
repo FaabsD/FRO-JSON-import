@@ -2,6 +2,8 @@ const output = document.getElementById('boeken');
 const request = new XMLHttpRequest();
 // checkboxes voor taal filters
 const taalfilters = document.querySelectorAll('.controls__checkbox');
+// select voor keuze sorteren
+const selectSort = document.querySelector('.controls__select');
 
 request.onreadystatechange = () => {
     if (request.readyState === 4 && request.status === 200) {
@@ -36,18 +38,14 @@ const books = {
     sorting() {
         if (this.propertySort === "titel") {
             this.data.sort((a, b) => (a.titel.toUpperCase() > b.titel.toUpperCase()) ? 1 : -1);
-        }
-        else if (this.propertySort === "paginas") {
-            this.data.sort((a,b) => (a.paginas > b.paginas) ? 1 : -1);
-        }
-        else if (this.propertySort === "uitgave") {
-            this.data.sort((a,b) => (a.uitgave > b.uitgave) ? 1 : -1);
-        }
-        else if (this.propertySort === "prijs") {
-            this.data.sort((a,b) => (a.prijs> b.prijs) ? 1 : -1);
-        }
-        else if (this.propertySort === "auteur") {
-            this.data.sort((a,b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam) ? 1 : -1);
+        } else if (this.propertySort === "paginas") {
+            this.data.sort((a, b) => (a.paginas > b.paginas) ? 1 : -1);
+        } else if (this.propertySort === "uitgave") {
+            this.data.sort((a, b) => (a.uitgave > b.uitgave) ? 1 : -1);
+        } else if (this.propertySort === "prijs") {
+            this.data.sort((a, b) => (a.prijs > b.prijs) ? 1 : -1);
+        } else if (this.propertySort === "auteur") {
+            this.data.sort((a, b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam) ? 1 : -1);
         }
     },
     // Hier wordt een eigenschap data gemaakt
@@ -155,4 +153,11 @@ const applyFilter = () => {
     books.run();
 }
 
+const changeSortProperty = () => {
+    books.propertySort = selectSort.value;
+    books.run();
+}
+
 taalfilters.forEach(cb => cb.addEventListener('change', applyFilter));
+selectSort.addEventListener('change', changeSortProperty);
+
