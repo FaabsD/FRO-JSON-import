@@ -2,7 +2,9 @@ body {
     background-color: skyblue;
     font-family: "Comic Sans MS", sans-serif;
 }
-
+.controls__select--label{
+    float: right;
+}
 .book {
     padding: 1rem;
     clear: left;
