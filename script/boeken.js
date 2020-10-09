@@ -18,6 +18,7 @@ request.send();
 
 const books = {
     langFilter: ["Nederlands", "Duits", "Engels"],
+    propertySort: "auteur", //de eigenschap waar de boeken op gesorteerd worden
     // filter taal
     filter(data) {
         // this.data = data.filter((book) => {return true});
@@ -31,8 +32,23 @@ const books = {
             return bool
         })
     },
+    // de sorteer functie
     sorting() {
-        this.data.sort((a,b) => (a.titel.toUpperCase() > b.titel.toUpperCase()) ? 1 : -1);
+        if (this.propertySort === "titel") {
+            this.data.sort((a, b) => (a.titel.toUpperCase() > b.titel.toUpperCase()) ? 1 : -1);
+        }
+        else if (this.propertySort === "paginas") {
+            this.data.sort((a,b) => (a.paginas > b.paginas) ? 1 : -1);
+        }
+        else if (this.propertySort === "uitgave") {
+            this.data.sort((a,b) => (a.uitgave > b.uitgave) ? 1 : -1);
+        }
+        else if (this.propertySort === "prijs") {
+            this.data.sort((a,b) => (a.prijs> b.prijs) ? 1 : -1);
+        }
+        else if (this.propertySort === "auteur") {
+            this.data.sort((a,b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam) ? 1 : -1);
+        }
     },
     // Hier wordt een eigenschap data gemaakt
     run() {
