@@ -20,7 +20,8 @@ request.send();
 
 const books = {
     langFilter: ["Nederlands", "Duits", "Engels"],
-    propertySort: "auteur", //de eigenschap waar de boeken op gesorteerd worden
+    propertySort: "titel", //de eigenschap waar de boeken op gesorteerd worden
+    oplopend: 1, // volgorde sorteren oplopend
     // filter taal
     filter(data) {
         // this.data = data.filter((book) => {return true});
@@ -37,15 +38,15 @@ const books = {
     // de sorteer functie
     sorting() {
         if (this.propertySort === "titel") {
-            this.data.sort((a, b) => (a.titel.toUpperCase() > b.titel.toUpperCase()) ? 1 : -1);
+            this.data.sort((a, b) => (a.titel.toUpperCase() > b.titel.toUpperCase()) ? this.oplopend : -1*this.oplopend);
         } else if (this.propertySort === "paginas") {
-            this.data.sort((a, b) => (a.paginas > b.paginas) ? 1 : -1);
+            this.data.sort((a, b) => (a.paginas > b.paginas) ? this.oplopend : -1*this.oplopend);
         } else if (this.propertySort === "uitgave") {
-            this.data.sort((a, b) => (a.uitgave > b.uitgave) ? 1 : -1);
+            this.data.sort((a, b) => (a.uitgave > b.uitgave) ? this.oplopend : -1*this.oplopend);
         } else if (this.propertySort === "prijs") {
-            this.data.sort((a, b) => (a.prijs > b.prijs) ? 1 : -1);
+            this.data.sort((a, b) => (a.prijs > b.prijs) ? this.oplopend : -1*this.oplopend);
         } else if (this.propertySort === "auteur") {
-            this.data.sort((a, b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam) ? 1 : -1);
+            this.data.sort((a, b) => (a.auteurs[0].achternaam > b.auteurs[0].achternaam) ? this.oplopend : -1*this.oplopend);
         }
     },
     // Hier wordt een eigenschap data gemaakt
@@ -160,4 +161,8 @@ const changeSortProperty = () => {
 
 taalfilters.forEach(cb => cb.addEventListener('change', applyFilter));
 selectSort.addEventListener('change', changeSortProperty);
+document.querySelectorAll('.controls__radio-button').forEach(rb => rb.addEventListener('change', () => {
+    books.oplopend = rb.value;
+    books.run();
+}));
 
