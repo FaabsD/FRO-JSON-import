@@ -4,7 +4,7 @@ const request = new XMLHttpRequest();
 request.onreadystatechange = () => {
     if (request.readyState === 4 && request.status === 200) {
         let result = JSON.parse(request.responseText);
-        books.data = result;
+        books.filter(result);
         books.run();
     } else {
         console.log("readystate: " + request.readyState);
@@ -15,6 +15,11 @@ request.open('GET', 'boeken.json', true);
 request.send();
 
 const books = {
+    langFilter: "Nederlands",
+    // filter taal
+    filter(data){
+      this.data = data.filter((book) => {return book.taal === this.langFilter});
+    },
     // Hier wordt een eigenschap data gemaakt
     run() {
         let html = "";
