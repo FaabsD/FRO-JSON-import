@@ -31,3 +31,5 @@ Video 14 Gebruiker laten filteren afgerond.
 Video 15 sorteren afgerond.
 ### 21:01
 Video 16 op andere eigenschappen sorteren afgerond.
+### 21:24
+video 17 de gebruiker laten sorteren afgerond.
