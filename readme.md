@@ -25,3 +25,5 @@ video 12 of eigenlijk 13? Afgerond begin gemaakt met filter.
 ### na mijn avondeten 
 ### 20:03
 Data uit JSON stap: 13 meer talen filteren afgerond.
+### 20:25 
+Video 14 Gebruiker laten filteren afgerond.
