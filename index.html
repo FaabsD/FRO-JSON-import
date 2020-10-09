@@ -22,17 +22,21 @@
         Duits
     </label>
 
-<!--    mogelijkheid om te sorteren-->
-    <label class="controls__select--label">
-        Sorteren op:
-        <select class="controls__select">
-            <option value="titel">Titel</option>
-            <option value="auteur">Auteurs</option>
-            <option value="uitgave">Datum van uitgave</option>
-            <option value="paginas">Aantal pagina's</option>
-            <option value="prijs">Prijs</option>
-        </select>
-    </label>
+    <!--    mogelijkheid om te sorteren-->
+    <span class="controls__sort">
+        <label class="controls__select--label">
+            Sorteren op:
+            <select class="controls__select">
+                <option value="titel">Titel</option>
+                <option value="auteur">Auteurs</option>
+                <option value="uitgave">Datum van uitgave</option>
+                <option value="paginas">Aantal pagina's</option>
+                <option value="prijs">Prijs</option>
+            </select>
+        </label>
+        <label><input type="radio" name="opaf" class="controls__radio-button" value="1" checked>Oplopend</label>
+        <label><input type="radio" name="opaf" class="controls__radio-button" value="-1">Aflopend</label>
+    </span>
 </div>
 <div id="boeken"></div>
 
