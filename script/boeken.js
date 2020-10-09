@@ -15,10 +15,17 @@ request.open('GET', 'boeken.json', true);
 request.send();
 
 const books = {
-    langFilter: "Nederlands",
+    langFilter: ["Nederlands", "Duits", "Engels"],
     // filter taal
-    filter(data){
-      this.data = data.filter((book) => {return book.taal === this.langFilter});
+    filter(data) {
+        // this.data = data.filter((book) => {return true});
+        this.data = data.filter((book) => {
+            let bool = false;
+            this.langFilter.forEach((taal) => {
+                if ( book.taal === taal ){bool = true}
+            })
+            return bool
+        })
     },
     // Hier wordt een eigenschap data gemaakt
     run() {
