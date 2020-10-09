@@ -15,7 +15,7 @@ video 8 afgerond.
 video 9 afgerond, moest even iets in de video terug kijken want dat ging niet goed. 
 ### 14:58
 video 10 afgerond prijs naar Nederlandse valuta (euro's).
-### gaat verder na dat ik bij de Fysiotherapeut ben geweest.
+### gaat verder nadat ik bij de Fysiotherapeut ben geweest.
 ### 18:11
 video 11 afgerond.
 
