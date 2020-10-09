@@ -27,9 +27,12 @@ const books = {
             title += book.titel
             // maak een lijst met auteurs
             let auteurs = "";
-            book.auteurs.forEach(auteur => {
+            book.auteurs.forEach((auteur,index) => {
                 let tussenvoegsel = auteur.tussenvoegsel ? auteur.tussenvoegsel + " " : "";
-                let separator = " | ";
+                // scheidingsteken tussen auteurs
+                let separator = ", ";
+                if (index >= book.auteurs.length -2) { separator = " & ";}
+                if (index >= book.auteurs.length -1) { separator = "";}
                 auteurs += auteur.voornaam + " " + tussenvoegsel + auteur.achternaam + separator;
             })
 
