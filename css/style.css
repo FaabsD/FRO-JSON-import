@@ -35,3 +35,13 @@ body {
     border: 0;
     margin: 0 .3em;
 }
+
+@media screen and (min-width: 1250px ){
+    #boeken {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .book:nth-child(4n+2), .book:nth-child(4n+3){
+        background-color: lightgray;
+    }
+}
