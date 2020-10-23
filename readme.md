@@ -35,3 +35,7 @@ Video 16 op andere eigenschappen sorteren afgerond.
 video 17 de gebruiker laten sorteren afgerond.
 ### 21:42
 video 18 sorteer volgorde omdraaien afgerond.
+
+## 23-10-2020
+### 14:24 uur
+Video 19 afgerond stijl voor bredere schermen toegevoegd.
