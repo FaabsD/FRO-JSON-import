@@ -41,3 +41,5 @@ video 18 sorteer volgorde omdraaien afgerond.
 Video 19 afgerond stijl voor bredere schermen toegevoegd.
 ### 15:11
 Video 20 winkelwagen en bestelknoppen maken afgerond.
+### 15:48
+Video 21 Bestelknoppen laten werken afgerond.
