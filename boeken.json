@@ -409,5 +409,21 @@
     "taal": "Nederlands",
     "ean": 9789047509752,
     "prijs": 12.95
+  },
+  {
+    "titel": " Freddie Mercury & Queen",
+    "voortitel": "The Icon Series -",
+    "cover": "https://media.s-bol.com/mlLr9Zgn5z9/550x545.jpg",
+    "auteurs": [
+      {
+        "voornaam": "Rebo",
+        "achternaam": "Productions"
+      }
+    ],
+    "uitgave": "2018-11",
+    "paginas": 124,
+    "taal": "Nederlands",
+    "ean": 9789036636926,
+    "prijs": 17.99
   }
 ]
