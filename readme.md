@@ -39,3 +39,5 @@ video 18 sorteer volgorde omdraaien afgerond.
 ## 23-10-2020
 ### 14:24 uur
 Video 19 afgerond stijl voor bredere schermen toegevoegd.
+### 15:11
+Video 20 winkelwagen en bestelknoppen maken afgerond.
