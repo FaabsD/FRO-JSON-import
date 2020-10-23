@@ -3,14 +3,14 @@ body {
     font-family: "Comic Sans MS", sans-serif;
 }
 
-.shoppingcart {
+.shopping-cart {
     position: absolute;
     right: 2rem;
 }
-.shoppingcart__icon {
+.shopping-cart__icon {
     height: 3rem;
 }
-.shoppingcart__amount {
+.shopping-cart__amount {
     position: absolute;
     top: 0;
     left: 2.8rem;
@@ -62,8 +62,19 @@ body {
 }
 
 .book__order-button {
+    font-size: 1.5rem;
     float: right;
     display: block;
+    text-decoration: none;
+    color: white;
+    padding: .5rem;
+    border: solid 2px white;
+    border-radius: 1rem;
+}
+
+.book__order-button:hover{
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .validatie img {
