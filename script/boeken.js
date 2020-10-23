@@ -78,17 +78,16 @@ const books = {
 
             html += `<section class="book">`;
             html += `<img class ="book__cover" src ="${book.cover}" alt"${title}">`;
+            html += `<div class="book__info">`;
             html += `<h3 class="book__head">${title}</h3>`;
             html += `<p class="book__authors">${auteurs}</p>`;
             html += `<span class="book__edition">${this.changeDate(book.uitgave)}</span>`;
             html += `<span class="book__ean">ean: ${book.ean}</span>`;
             html += `<span class="book__pages">${book.paginas} pagina's</span>`;
             html += `<span class="book__lang">${book.taal}</span>`;
-            html += `<div class="book__price">${book.prijs.toLocaleString('nl-NL', {
-                currency: 'EUR',
-                style: 'currency'
-            })}</div>`
-            html += `</section>`;
+            html += `<div class="book__price">${book.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}
+                <a href="#" class="book__order-button">bestellen</a></div>`
+            html += `</div></section>`;
         });
         output.innerHTML = html;
     },
