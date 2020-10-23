@@ -4,7 +4,8 @@ const request = new XMLHttpRequest();
 const taalfilters = document.querySelectorAll('.controls__checkbox');
 // select voor keuze sorteren
 const selectSort = document.querySelector('.controls__select');
-
+// het aantal in winkelwagen
+const amountCart = document.querySelector('.shopping-cart__amount');
 request.onreadystatechange = () => {
     if (request.readyState === 4 && request.status === 200) {
         let result = JSON.parse(request.responseText);
@@ -18,6 +19,18 @@ request.onreadystatechange = () => {
 request.open('GET', 'boeken.json', true);
 request.send();
 
+// object winkelwagen
+// met properties: (bestelde boeken)
+// en methods:
+const shoppingCart = {
+    order: [
+
+    ]
+}
+
+// object boeken
+// met properties: taalfilter, data, es
+// en methods: filteren, sorteren, uitvoeren
 const books = {
     langFilter: ["Nederlands", "Duits", "Engels"],
     propertySort: "titel", //de eigenschap waar de boeken op gesorteerd worden
@@ -86,10 +99,21 @@ const books = {
             html += `<span class="book__pages">${book.paginas} pagina's</span>`;
             html += `<span class="book__lang">${book.taal}</span>`;
             html += `<div class="book__price">${book.prijs.toLocaleString('nl-NL', {currency: 'EUR', style: 'currency'})}
-                <a href="#" class="book__order-button">bestellen</a></div>`
+                <a href="#" class="book__order-button" data-role="${book.ean}">bestellen</a></div>`
             html += `</div></section>`;
         });
         output.innerHTML = html;
+        // de knoppen voorzien van EventListener
+        document.querySelectorAll('.book__order-button').forEach(knop => {
+            knop.addEventListener('click', e => {
+                e.preventDefault();
+                let bookID = e.target.getAttribute('data-role');
+                // console.log(bookID);
+                let clickedBook = this.data.filter(book => book.ean == bookID);
+                shoppingCart.order.push(clickedBook[0]);
+                amountCart.innerHTML = shoppingCart.order.length;
+            })
+        });
     },
     changeDate(dateString) {
         let date = new Date(dateString);
