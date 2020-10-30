@@ -43,3 +43,7 @@ Video 19 afgerond stijl voor bredere schermen toegevoegd.
 Video 20 winkelwagen en bestelknoppen maken afgerond.
 ### 15:48
 Video 21 Bestelknoppen laten werken afgerond.
+
+## 30-10-2020
+### 14:40
+Video 22 Localstorage afgerond.
