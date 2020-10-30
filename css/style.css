@@ -94,3 +94,21 @@ body {
         background-color: lightgray;
     }
 }
+#getForm{
+    display: none;
+}
+#getForm:checked ~ .order-form {
+ transform: translateX(10vw);
+}
+.order-form{
+    background-color: white;
+    position: absolute;
+    width: 80vw;
+    min-height: 90vh;
+    top: 1rem;
+    transform: translateX(100vw);
+    padding: 2rem;
+    border: 1.5px solid deepskyblue;
+    box-sizing: border-box;
+    transition: transform .5s ease-out;
+}
