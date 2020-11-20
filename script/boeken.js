@@ -21,24 +21,43 @@ request.send();
 
 // object winkelwagen
 // met properties: (bestelde boeken)
-// en methods:
+// en methods: addBook, getData, run
 const shoppingCart = {
     order: [
 
     ],
     // Boek toevoegen
-    addBook(obj){
+    addBook(obj) {
         shoppingCart.order.push(obj);
         amountCart.innerHTML = this.order.length;
-    },
-    // data in localstorage opslaan
-    saveData(){
         localStorage.cartOrder = JSON.stringify(this.order);
-
     },
     //data uit localstorage halen
-    getOrder(){
+    getOrder() {
         this.order = JSON.parse(localStorage.cartOrder);
+        this.run();
+    },
+    run: function () {
+        let html = "<table>";
+        let total = 0;
+        this.order.forEach(book => {
+            let completeTitle = "";
+            if (book.voortitel) {
+                completeTitle += book.voortitel + " ";
+            }
+            completeTitle += book.titel;
+            html += "<tr>";
+            html += `<td><img class="order-form__cover" src="${book.cover}" alt="${completeTitle}"></td>`;
+            html +=`<td>${completeTitle}</td>`;
+            html += `<td>${book.prijs.toLocaleString("nl-NL", {currency: 'EUR', style: 'currency'})}</td>`
+            html += "</tr>";
+            total += book.prijs;
+        });
+        html += `<tr><td colspan="2">Totaal:</td>
+        <td>${total.toLocaleString("nl-NL", {currency: 'EUR', style: 'currency'})}</td>
+        </tr>`;
+        html += "</table>";
+        document.getElementById("output").innerHTML = html;
         amountCart.innerHTML = shoppingCart.order.length;
     }
 }
