@@ -28,13 +28,19 @@ const shoppingCart = {
     ],
     // Boek toevoegen
     addBook(obj) {
-        shoppingCart.order.push(obj);
+        let found = this.order.filter(b => b.ean == obj.ean);
+        if (found.length == 0) {
+            shoppingCart.order.push(obj);
+        }
         amountCart.innerHTML = this.order.length;
         localStorage.cartOrder = JSON.stringify(this.order);
+
     },
     //data uit localstorage halen
     getOrder() {
-        this.order = JSON.parse(localStorage.cartOrder);
+        if (localStorage.cartOrder) {
+            this.order = JSON.parse(localStorage.cartOrder);
+        }
         this.run();
     },
     run: function () {
@@ -106,6 +112,8 @@ const books = {
         this.sorting();
         let html = "";
         this.data.forEach(book => {
+            //een eigenschap aantalBesteld meegeven
+            book.count = 0;
             // Als er een voortitel is moet deze voor de titel worden geplaatst
             let title = "";
             if (book.voortitel) {
@@ -148,6 +156,7 @@ const books = {
                 let bookID = e.target.getAttribute('data-role');
                 // console.log(bookID);
                 let clickedBook = this.data.filter(book => book.ean == bookID);
+                clickedBook[0].count ++;
                 shoppingCart.addBook(clickedBook[0]);
 
 
