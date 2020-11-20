@@ -59,3 +59,5 @@ klaar tot en met video 25 uitvoer bestelling winkelwagen.
 video 26 verberg dubbele items afgerond.
 ### 22:26
 video 27 aantallen verwerken afgerond.
+### 23:03
+video 28 boeken verwijderen afgerond.
