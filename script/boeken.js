@@ -25,10 +25,27 @@ request.send();
 const shoppingCart = {
     order: [
 
-    ]
+    ],
+    // Boek toevoegen
+    addBook(obj){
+        shoppingCart.order.push(obj);
+        amountCart.innerHTML = this.order.length;
+    },
+    // data in localstorage opslaan
+    saveData(){
+        localStorage.cartOrder = JSON.stringify(this.order);
+
+    },
+    //data uit localstorage halen
+    getOrder(){
+        this.order = JSON.parse(localStorage.cartOrder);
+        amountCart.innerHTML = shoppingCart.order.length;
+    }
 }
-shoppingCart.order = JSON.parse(localStorage.cartOrder);
-amountCart.innerHTML = shoppingCart.order.length;
+// data uit localstorage halen
+shoppingCart.getOrder();
+
+
 
 // object boeken
 // met properties: taalfilter, data, es
@@ -112,9 +129,9 @@ const books = {
                 let bookID = e.target.getAttribute('data-role');
                 // console.log(bookID);
                 let clickedBook = this.data.filter(book => book.ean == bookID);
-                shoppingCart.order.push(clickedBook[0]);
-                amountCart.innerHTML = shoppingCart.order.length;
-                localStorage.cartOrder = JSON.stringify(shoppingCart.order);
+                shoppingCart.addBook(clickedBook[0]);
+
+
             })
         });
     },

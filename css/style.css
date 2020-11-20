@@ -1,11 +1,13 @@
 body {
     background-color: skyblue;
     font-family: "Comic Sans MS", sans-serif;
+    overflow-x: hidden;
 }
 
 .shopping-cart {
     position: absolute;
     right: 2rem;
+    cursor: pointer;
 }
 .shopping-cart__icon {
     height: 3rem;
