@@ -61,6 +61,7 @@ const shoppingCart = {
             html +=`<td>${completeTitle}</td>`;
             html += `<td>${book.orderCount}</td>`
             html += `<td>${book.prijs.toLocaleString("nl-NL", {currency: 'EUR', style: 'currency'})}</td>`
+            html += `<td><i class="fas fa-trash order-form__trash" data-role="${book.ean}"></i></td>`;
             html += "</tr>";
             total += book.prijs * book.orderCount;
             totalOrdered += book.orderCount;
@@ -71,7 +72,20 @@ const shoppingCart = {
         html += "</table>";
         document.getElementById("output").innerHTML = html;
         amountCart.innerHTML = totalOrdered;
+        this.removeOrder();
+    },
+    removeOrder() {
+        document.querySelectorAll('.order-form__trash').forEach(trash => {
+            trash.addEventListener('click', e =>{
+                let bookToRemoveID = e.target.getAttribute('data-role');
+                this.order = this.order.filter(bk =>bk.ean != bookToRemoveID);
+                // localstorage bijwerken
+                localStorage.cartOrder = JSON.stringify(this.order);
+                this.run();
+            })
+        })
     }
+
 }
 // data uit localstorage halen
 shoppingCart.getOrder();
