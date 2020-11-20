@@ -2,6 +2,7 @@ body {
     background-color: skyblue;
     font-family: "Comic Sans MS", sans-serif;
     overflow-x: hidden;
+    width: 100vw;
 }
 
 .shopping-cart {
