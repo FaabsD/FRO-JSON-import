@@ -48,5 +48,8 @@ Video 21 Bestelknoppen laten werken afgerond.
 ## 30-10-2020
 ### 14:40
 Video 22 Localstorage afgerond.
-=======
->>>>>>> parent of 83df840... Update readme.md
+
+## 20-11-2020
+### 12:46 
+Tot en met video 24 overflow verhelpen en methods voor winkelwagen afgerond.
+Moest eerst een probleem in mijn script verhelpen.
