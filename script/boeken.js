@@ -30,10 +30,13 @@ const shoppingCart = {
     addBook(obj) {
         let found = this.order.filter(b => b.ean == obj.ean);
         if (found.length == 0) {
+            obj.orderCount++;
             shoppingCart.order.push(obj);
+        } else {
+            found[0].orderCount++;
         }
-        amountCart.innerHTML = this.order.length;
         localStorage.cartOrder = JSON.stringify(this.order);
+        this.run();
 
     },
     //data uit localstorage halen
@@ -43,9 +46,10 @@ const shoppingCart = {
         }
         this.run();
     },
-    run: function () {
+    run() {
         let html = "<table>";
         let total = 0;
+        let totalOrdered = 0;
         this.order.forEach(book => {
             let completeTitle = "";
             if (book.voortitel) {
@@ -55,16 +59,18 @@ const shoppingCart = {
             html += "<tr>";
             html += `<td><img class="order-form__cover" src="${book.cover}" alt="${completeTitle}"></td>`;
             html +=`<td>${completeTitle}</td>`;
+            html += `<td>${book.orderCount}</td>`
             html += `<td>${book.prijs.toLocaleString("nl-NL", {currency: 'EUR', style: 'currency'})}</td>`
             html += "</tr>";
-            total += book.prijs;
+            total += book.prijs * book.orderCount;
+            totalOrdered += book.orderCount;
         });
-        html += `<tr><td colspan="2">Totaal:</td>
+        html += `<tr><td colspan="3">Totaal:</td>
         <td>${total.toLocaleString("nl-NL", {currency: 'EUR', style: 'currency'})}</td>
         </tr>`;
         html += "</table>";
         document.getElementById("output").innerHTML = html;
-        amountCart.innerHTML = shoppingCart.order.length;
+        amountCart.innerHTML = totalOrdered;
     }
 }
 // data uit localstorage halen
@@ -113,7 +119,7 @@ const books = {
         let html = "";
         this.data.forEach(book => {
             //een eigenschap aantalBesteld meegeven
-            book.count = 0;
+            book.orderCount = 0;
             // Als er een voortitel is moet deze voor de titel worden geplaatst
             let title = "";
             if (book.voortitel) {
@@ -156,7 +162,6 @@ const books = {
                 let bookID = e.target.getAttribute('data-role');
                 // console.log(bookID);
                 let clickedBook = this.data.filter(book => book.ean == bookID);
-                clickedBook[0].count ++;
                 shoppingCart.addBook(clickedBook[0]);
 
 
