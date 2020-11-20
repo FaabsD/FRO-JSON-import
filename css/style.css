@@ -114,3 +114,6 @@ body {
     box-sizing: border-box;
     transition: transform .5s ease-out;
 }
+.order-form__cover {
+    height: 3rem;
+}
