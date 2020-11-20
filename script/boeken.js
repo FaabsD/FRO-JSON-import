@@ -27,7 +27,8 @@ const shoppingCart = {
 
     ]
 }
-
+shoppingCart.order = JSON.parse(localStorage.cartOrder);
+amountCart.innerHTML = shoppingCart.order.length;
 // object boeken
 // met properties: taalfilter, data, es
 // en methods: filteren, sorteren, uitvoeren
@@ -112,6 +113,7 @@ const books = {
                 let clickedBook = this.data.filter(book => book.ean == bookID);
                 shoppingCart.order.push(clickedBook[0]);
                 amountCart.innerHTML = shoppingCart.order.length;
+                localStorage.cartOrder = JSON.stringify(shoppingCart.order);
             })
         });
     },
