@@ -57,3 +57,5 @@ Moest eerst een probleem in mijn script verhelpen.
 klaar tot en met video 25 uitvoer bestelling winkelwagen.
 ### 21:48
 video 26 verberg dubbele items afgerond.
+### 22:26
+video 27 aantallen verwerken afgerond.
