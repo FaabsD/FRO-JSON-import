@@ -53,3 +53,6 @@ Video 22 Localstorage afgerond.
 ### 12:46 
 Tot en met video 24 overflow verhelpen en methods voor winkelwagen afgerond.
 Moest eerst een probleem in mijn script verhelpen.
+### verder gegaan in de avond
+### 21:12
+klaar tot en met video 25 uitvoer bestelling winkelwagen.
