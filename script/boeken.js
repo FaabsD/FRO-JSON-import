@@ -29,6 +29,7 @@ const shoppingCart = {
 }
 shoppingCart.order = JSON.parse(localStorage.cartOrder);
 amountCart.innerHTML = shoppingCart.order.length;
+
 // object boeken
 // met properties: taalfilter, data, es
 // en methods: filteren, sorteren, uitvoeren
