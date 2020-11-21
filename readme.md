@@ -64,3 +64,5 @@ video 28 boeken verwijderen afgerond.
 ## 21-11-2020
 ### 19:19
 video 29 knoppen bestelling maken afgerond.
+### 19:46
+video 30 knoppen bestelling activeren afgerond.
