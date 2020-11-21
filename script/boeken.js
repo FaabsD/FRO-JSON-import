@@ -59,7 +59,10 @@ const shoppingCart = {
             html += "<tr>";
             html += `<td><img class="order-form__cover" src="${book.cover}" alt="${completeTitle}"></td>`;
             html +=`<td>${completeTitle}</td>`;
-            html += `<td>${book.orderCount}</td>`
+            html += `<td class="order-form__order-count">
+            <i class="order-form__down fas fa-arrow-down" data-role="${book.ean}"></i>
+            ${book.orderCount}
+            <i class="order-form__up fas fa-arrow-up" data-role="${book.ean}"></i></td>`
             html += `<td>${book.prijs.toLocaleString("nl-NL", {currency: 'EUR', style: 'currency'})}</td>`
             html += `<td><i class="fas fa-trash order-form__trash" data-role="${book.ean}"></i></td>`;
             html += "</tr>";
