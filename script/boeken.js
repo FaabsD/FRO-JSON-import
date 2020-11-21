@@ -76,6 +76,36 @@ const shoppingCart = {
         document.getElementById("output").innerHTML = html;
         amountCart.innerHTML = totalOrdered;
         this.removeOrder();
+        this.increaseDecrease();
+    },
+    increaseDecrease() {
+        // verhoog het aantal
+        let increase = document.querySelectorAll('.order-form__up');
+        increase.forEach(button => {
+            button.addEventListener('click', e => {
+                let increaseID = e.target.getAttribute('data-role');
+                let increaseBook = this.order.filter(book => book.ean == increaseID);
+                increaseBook[0].orderCount++;
+                localStorage.cartOrder = JSON.stringify(this.order);
+                this.run();
+            })
+        })
+        // verlaag het aantal
+        let decrease = document.querySelectorAll('.order-form__down');
+        decrease.forEach(button => {
+            button.addEventListener('click', e => {
+                let decreaseID = e.target.getAttribute('data-role');
+                let decreaseBook = this.order.filter(book => book.ean == decreaseID);
+                if (decreaseBook[0].orderCount > 1){
+                    decreaseBook[0].orderCount--;
+                } else {
+                    //boek verwijderen
+                    this.order = this.order.filter(bk =>bk.ean != decreaseID);
+                }
+                localStorage.cartOrder = JSON.stringify(this.order);
+                this.run();
+            })
+        })
     },
     removeOrder() {
         document.querySelectorAll('.order-form__trash').forEach(trash => {
