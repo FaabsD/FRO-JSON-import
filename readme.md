@@ -61,3 +61,6 @@ video 26 verberg dubbele items afgerond.
 video 27 aantallen verwerken afgerond.
 ### 23:03
 video 28 boeken verwijderen afgerond.
+## 21-11-2020
+### 19:19
+video 29 knoppen bestelling maken afgerond.
